@@ -24,3 +24,15 @@
     * cd rlm-token-auth-series-context
     * code .
     * run npm install to get dependencies
+
+  ### Part 3 start:
+    * git clone -b part-3-start https://github.com/v-school/rlm-token-auth-series-context.git
+    * cd rlm-token-auth-series-context
+    * code .
+    * run npm install to get dependencies
+
+  ### Part 3 end:
+    * git clone -b part-3-end https://github.com/v-school/rlm-token-auth-series-context.git
+    * cd rlm-token-auth-series-context
+    * code .
+    * run npm install to get dependencies
