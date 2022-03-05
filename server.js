@@ -10,17 +10,11 @@ app.use(morgan('dev'))
 
 mongoose.connect(
   'mongodb://localhost:27017/user-authentication',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  },
   () => console.log('Connected to the DB')
 )
 
 app.use('/auth', require('./routes/authRouter.js'))
-app.use('/api', expressJwt({ secret: process.env.SECRET })) // req.user
+app.use('/api', expressJwt({ secret: process.env.SECRET, algorithms: ['HS256'] })) // req.user
 app.use('/api/todo', require('./routes/todoRouter.js'))
 
 app.use((err, req, res, next) => {
