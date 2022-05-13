@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.js'
 import Auth from './components/Auth.js'
 import Profile from './components/Profile.js'
@@ -9,20 +9,20 @@ export default function App(){
   return (
     <div className="app">
       <Navbar />
-      <Switch>
+      <Routes>
         <Route 
-          exact path="/" 
-          render={()=> <Auth />}
+          path="/" 
+          element={<Auth />}
         />
         <Route 
           path="/profile"
-          render={() => <Profile />}
+          element={<Profile />}
         />
         <Route 
           path="/public"
-          render={() => <Public />}
+          element={<Public />}
         />
-      </Switch>
+      </Routes>
     </div>
   )
 }
