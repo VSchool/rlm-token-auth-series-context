@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar.js'
 import Auth from './components/Auth.js'
 import Profile from './components/Profile.js'
@@ -11,20 +11,20 @@ export default function App(){
   return (
     <div className="app">
       <Navbar logout={logout}/>
-      <Switch>
+      <Routes>
         <Route 
-          exact path="/" 
-          render={()=> token ? <Redirect to="/profile"/> : <Auth />}
+          path="/" 
+          element={ token ? <Navigate to="/profile"/> : <Auth />}
         />
         <Route 
           path="/profile"
-          render={() => <Profile />}
+          element={<Profile />}
         />
         <Route 
           path="/public"
-          render={() => <Public />}
+          element={<Public />}
         />
-      </Switch>
+      </Routes>
     </div>
   )
 }
