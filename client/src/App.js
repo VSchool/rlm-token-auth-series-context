@@ -17,17 +17,21 @@ export default function App(){
           path="/" 
           element={token ? <Navigate to="/profile"/> : <Auth />}
         />
-        <Route path="/profile" element={<ProtectedRoute 
-          token={token} 
-          redirectTo="/">
-            <Profile/>
-          </ProtectedRoute>}
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute token={token} redirectTo="/">
+              <Profile/>
+            </ProtectedRoute>
+          }
         />
-        <Route path="/public" element={<ProtectedRoute 
-          token={token} 
-          redirectTo="/">
-            <Public/>
-          </ProtectedRoute>}
+        <Route 
+          path="/public" 
+          element={
+            <ProtectedRoute token={token} redirectTo="/">
+              <Public/>
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </div>
