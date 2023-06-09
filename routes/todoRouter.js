@@ -15,6 +15,7 @@ todoRouter.get("/", (req, res, next) => {
 
 // Add new Todo
 todoRouter.post("/", (req, res, next) => {
+  req.body.user = req.auth._id
   const newTodo = new Todo(req.body)
   newTodo.save((err, savedTodo) => {
     if(err){
