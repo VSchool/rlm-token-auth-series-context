@@ -3,7 +3,7 @@ const app = express()
 require('dotenv').config()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
-const expressJwt = require('express-jwt')
+const {expressjwt} = require('express-jwt')
 
 app.use(express.json())
 app.use(morgan('dev'))
@@ -15,7 +15,7 @@ mongoose.connect(
 
 
 app.use('/user', require('./routes/authRouter.js'))             // prompts user to ether log in or signup to recieve a token in order to have access to the rest of the app 
-app.use('/api', expressJwt({ secret: process.env.SECRET, algorithms: ['HS256']}))      //first expressJwt will be triggered to check for a token
+app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256']}))      //first expressJwt will be triggered to check for a token
 app.use('/api/todo', require('./routes/todoRouter.js'))         // if token exists it will let user through to the rest of the app
 
 app.use((err, req, res, next) => {
